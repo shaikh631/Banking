@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+      <header>
+     <div class="head">
+            <h3>Nivida</h3>
+        </div>
+        <div class="nav-mobile">
+        <div class="nav_section_accont">
+        <a id="header-detail">Personal</a>
+        <a id="header-detail">NRI</a>
+        <a id="header-detail">Bussiness</a>
+        <!-- </div>  -->
+        <!-- <div class="nav_moblie-menu"> -->
+        <a id="header-detail">Resources</a>
+        <a id="header-detail">About</a>
+        <a id="header-detail">Help</a>
+        <a id="header-detail">Complaints</a>
+       <!-- </div> -->
+        <!-- <div class="nav-mobile-comp"> -->
+        <a id="header-detail"><i class="fa-solid fa-phone"></i></a>
+        <a id="header-detail">+91xx xxxx xxxx</a>
+        <a id="header-detail"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a id="header-detail"><i class="fa-light fa-heart"></i></a>
+        <!-- <button id="login_button"><a href="login.html" class="button" style="color: white;">Log In</a></button> -->
+
+
+         <!-- <a href="login.html" class="button">Log In</a> -->
+    </div>
+        </div>
+    </header>
+
+<main>
+    <h1 >Calculator :-</h1>
+  <div class="calculator">
+                    <div class="cal-left-input">
+
+                    <h2 style="font-size: xx-large;">Choose your Loan</h2>
+                    <div class="cal-butt">
+                    <div class="cal-interset-but">
+                        <span>Personal</span>
+                    </div>
+                    <div class="cal-interset-but">
+                        <span>Home</span>
+                    </div>
+                    <div class="cal-interset-but">
+                        <span>Vehical</span>
+                    </div>
+                    <div class="cal-interset-but">
+                        <span>Education</span>
+                    </div>
+                     </div>
+
+                     <!-- add range  -->
+                      <label style="font-size: larger;">Amount</label><br>
+                      <input type="range" min="50000" max="50000000" step="1000" value="50000" class="slider" id="amountrange">
+                      <input type="number" id="amountInput" value="50000">
+                      <br>
+                      <br>
+
+                      <!-- Months -->
+                       <!-- <div class="duration">
+                        <button  onclick="setDuration(6)" class="active">6 Months</button>
+                         <button onclick="setDuration(12)">1 Year</button>
+                          <button onclick="setDuration(24)">2 Year</button>
+                       </div> -->
+                       <div class="duration">
+                        <span>Duration Time</span><br>
+                         <button onclick="setDuration(6, event)" class="active">6 Months</button>
+                           <button onclick="setDuration(12, event)">1 Year</button>
+                        <button onclick="setDuration(24, event)">2 Year</button>
+                       </div>
+
+                    </div>
+
+                    <!-- right to show ans -->
+                    <div class="cal-right-output">
+                        <!-- Interest Rate -->
+                         <div class="cal-right-output-cont">
+                        <label margin>Inerest Rate (%) </label>
+                        <input type="number" id="rate" value="11">
+                        <i class="fa-solid fa-pen"></i><br>
+
+                        <h3 id="emi"><i class="fa-solid fa-indian-rupee-sign"></i>0</h3>
+                        <p id="interest">Total Interest:<i class="fa-solid fa-indian-rupee-sign"></i>0 </p>
+
+                        <!-- more view -->
+                         <div class="cal-view">
+                             <div class="cal-veiw-1">
+                    <span>More Veiw
+                    
+                    </span>
+                     </div>
+                           <div class="cal-veiw-2">
+                    <p href="https://www.cibil.com/" style=" text-decoration: none">Apply Now
+                    </p>
+                     </div>
+
+                    </div>
+                </div>
+
+                    
+                </div>
+            </div>
+            </main>
+
+            <script src="app.js"></script>
+        
+</body>
+</html>

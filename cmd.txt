@@ -1,0 +1,6 @@
+$sources = Get-ChildItem -Recurse -Path src -Filter *.java | ForEach-Object { $_.FullName }; & javac -cp ".;lib\mysql-connector-j-9.5.0.jar" -d out $sources
+
+New-Item -ItemType Directory -Force out | Out-Null
+javac -cp ".;lib\mysql-connector-j-9.5.0.jar" -d out src\com\example\bank\*.java src\com\example\bank\model\*.java
+
+java -cp ".;out;lib\mysql-connector-j-9.5.0.jar" com.example.bank.BankServer

@@ -1,0 +1,5 @@
+delete database
+recreate using the schema.sql
+use the cmd from cmd.txt
+if unable to use try chatgpt for cmd for mac
+if any error try using copilot
