@@ -47,28 +47,56 @@ color: #ffffff;
 
 header{
     height: 70px;
-    width: 100%;
+    width: 80%;
     /* background:linear-gradient(to padding-right , #588157,white); */
       background: linear-gradient(to bottom, #94bc93, #588157);
      box-shadow: 0 0 10px 10px rgba(0,0,0,0.6);
     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-left: 6%;
+      margin-top: 20px;
+     /* border: 2px solid black; */
+     z-index: 10;
+     transition:all;
+     margin-left: 10%;
     /* /* justify-content: center; */
     padding-right: 0.5rem; 
     /* /* margin-top: 0px; */
-    position: sticky;
+    position:fixed;
     top: 0px;
+    border-radius: 20px;
     
 }
 .head{
-    margin-top: 3px;
-    margin-left: 15rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 25px;
     color: #000;
 }
-h3{
-    height: 5rem;
-    width: 10rem;
-    font-size: 3rem;
+
+.brand-icon{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.brand-icon svg{
+    width: 100%;
+    height: 100%;
+    fill: #072113;
+}
+h3{
+    /* height: 5rem;
+    width: 10rem; */
+    
+    font-size: 3rem;
+    font-weight: 700;
+    /* margin-left: -13rem; */
     /* top: 80px; */
     
      /* transition: 2s ease-in-out; */
@@ -83,7 +111,7 @@ h3{
     margin-top: 1rem;
 }
 #header-detail{
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     font-size: 18px;
    /* transition: 2s ease-in-out; */
 }
@@ -111,7 +139,7 @@ h3{
     color: #344e41;
      transition: transform 0.5s ease;
 }  */
-
+.Mode,
 #login_button {
   font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
   font-size: 16px;
@@ -124,15 +152,28 @@ h3{
   padding: 10px 20px;
   cursor: pointer;
   color: #ffffff;
+  margin-bottom: 2rem;
+   transition: all 0.3s ease; /* Smooth transition for hover effects */
   /* transition: background (0.3s ease, transform 0.1s ease); */
+}
+.Mode{
+    background-color: transparent;
+    color: #072113;
+    border: 1px solid #072113;
 }
 /* .nav_section_accont :hover{
     transform: scale(5.05);
 } */
+.Mode:hover {
+     background-color: transparent;
+     color: #ffffff;
+     transform: scale(1.2);
+ }
 
 #login_button:hover {
-  background-color: #285e61; /* Darker teal on hover */
-  transform: scale(1.05); /* Slight grow effect */
+  background-color: #a4ac86; /* Darker teal on hover */
+  transform: scale(1.05);
+  color: #000; /* Slight grow effect */
 }
 
 #login_button:active {
@@ -184,8 +225,9 @@ h3{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(#1a237e) 0%, var( #283593) 100%);
-    opacity: 0.95;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    opacity: 0.6; /* reduced so image is visible */
+    z-index: 1;
 }
 
 .slide-content-above {
@@ -252,7 +294,7 @@ h3{
     right: 4rem;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 3;
     width: 650px;
     height: 400px;
     border-radius: 15px;
@@ -849,6 +891,7 @@ outline: none;*/
     padding-top: 20px;
     font-weight: 50;
     font-size: 32px;
+    margin-left: 0rem;
 }
 .duration button {
   padding: 8px 15px;
@@ -1205,59 +1248,49 @@ ul a:hover{
 
 
 
-
-
-
-/* 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-} */
-
 /* Dark mode overrides */
 body.dark-mode {
-    background: linear-gradient(to bottom, #0d111a, #151b27);
+    background: linear-gradient(to bottom, #1d2d44, #3e5c76);
     color: #e8f2ff;
 }
 
 body.dark-mode header {
-    background: linear-gradient(to bottom, #1a2a3f, #112033);
+    background:  #3e5c76;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    color:#f0ebd8;
 }
 
 body.dark-mode .head,
 body.dark-mode h3,
-body.dark-mode #header-detail,
-body.dark-mode #main-detail,
-body.dark-mode a {
+body.dark-mode h2,
+body.dark-mode #header-detail {
     color: #e8efff;
 }
-
-body.dark-mode .nav-mobile a {
-    color: #c4d8ff;
+body.dark-mode .main-contain-left-section p,
+body.dark-mode .foot-panal2 p {
+    color: #fdd86c;
 }
 
+
+/* body.dark-mode .nav-mobile a {
+    color: #c4d8ff;
+} */
+
 body.dark-mode #login_button {
-    background-color: #245b76;
+    background-color: #122c3a;
     color: #f8fafd;
 }
 
 body.dark-mode #login_button:hover {
-    background-color: #1b4d66;
+    background-color: #fca311;
+    color: #0c0c0c;
+}
+body.dark-mode #left-section-button a{  
+     background-color: #245b76; 
+    color: #161617;
 }
 
+/* 
 body.dark-mode .above-main-con,
 body.dark-mode .main-contain,
 body.dark-mode .main-section,
@@ -1270,6 +1303,8 @@ body.dark-mode .foot-panal4 {
     background: #0f1a29;
     color: #cdd8ec;
 }
+    /* 
+
 
 body.dark-mode .slider-container-above,
 body.dark-mode .hero-call-item,
@@ -1290,7 +1325,7 @@ body.dark-mode .foot-panal1 {
     color: #d4e2f5;
     box-shadow: 0 4px 14px rgba(0,0,0,0.6);
 }
-
+/* 
 body.dark-mode .slide-background-above {
     opacity: 0.85;
 }
@@ -1306,12 +1341,12 @@ body.dark-mode .cta-button:hover {
 
 body.dark-mode .control-btn {
     background: #6b7a8d;
-}
+} 
 
 body.dark-mode .control-btn.active,
 body.dark-mode .control-btn:hover {
     background: #e5edf9;
-}
+} 
 
 body.dark-mode .duration .active,
 body.dark-mode .cal-interset-but:hover,
@@ -1326,7 +1361,7 @@ body.dark-mode textarea {
     background: #1f2b39;
     color: #d7e6f7;
     border-color: #3b4f64;
-}
+} 
 
 body.dark-mode .foot-panal3 .social-links a,
 body.dark-mode .foot-panal2 ul a {
@@ -1534,3 +1569,126 @@ body.dark-mode header{
     color: white;
 } */
 
+.logo {
+  width: 150px;
+  height: 50px;
+  background-image: url("light-image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Auto dark mode */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    background-image: url("dark-image.png");
+  }
+}
+img {
+  filter: none;
+}
+
+/* Auto invert only in dark mode */
+@media (prefers-color-scheme: dark) {
+  img.auto-invert {
+    filter: invert(1);
+  }
+}
+
+/* Ensure images are always visible in dark mode */
+body.dark-mode img {
+    opacity: 1 !important;
+    filter: none !important;
+    visibility: visible !important;
+}
+
+dark-mode a{
+    color: black;
+}
+body.dark-mode .cal-veiw-2{
+    background-color: white;
+    color: #072113;
+    font-size: -5px;  
+    color: #072113;
+    text-decoration: none;
+}
+body.dark-mode .cal-veiw-1{
+    background-color: transparent;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+body.dark-mode .cal-veiw-1:hover ,body.dark-mode .cal-veiw-2:hover{
+   transform: scale(1.1);
+
+}
+body.dark-mode .saving:active{
+    transform:translateX(40%);
+   background: transparent;
+   color:black;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+    transition: margin-right 2s ease-in-out;
+}
+body.dark-mode  .hero-call-item-support{
+     height: 50px;
+    width: 25%;
+    display:flex;
+    /* font-size: 0px; */
+    /* font-weight: 50; */
+    font-weight: 5px;
+    /* font-size: 2px; */
+    border-radius: 20px;
+    background-color: #729ed7;
+    color: #ffffff;
+    border: 1px solid white;
+
+   /* margin-right: 20px; */
+    justify-content: space-evenly;
+    align-items: center; 
+}
+body.dark-mode #phone-icon-unique{
+      color: white;
+}
+body.dark-mode .foot-panal2,
+body.dark-mode .foot-panal4,
+body.dark-mode .foot-panal1 ,
+body.dark-mode .foot-panal3 {
+    background: linear-gradient(135deg, #0e1b2c, #1f2c40);
+}
+body.dark-mode .foot-panal2 a,
+body.dark-mode .foot-panal1 a{
+     background: transparent;
+    color: whitesmoke;
+}
+
+body.dark-mode .foot-panal4 a{
+    background: #111f30;
+    color: white;
+}
+body.dark-mode .cal-interset-but{
+    background: #3e5c76;
+    color: #f0ebd8;
+}
+body.dark-mode .cal-interset-but:hover,.active{
+    background-color: #3c6f9b;
+    color: #fff;
+    transform: translate(3);
+}
+body.dark-mode .cal-left-input ,
+body.dark-mode #previous-operation {
+    color: #f0ebd8;
+}
+/* body.dark-mode .foot-panal4,
+body.dark-mode .foot-panal1 ,
+body.dark-mode .foot-panal3{
+    background: #111f30;
+    color: white;
+} */
+ body.dark-mode .Mode:hover{
+    background-color: transparent;
+    color: white;
+    transform: scale(1.2);
+}
+
+body.dark-mode .brand-icon svg{
+    fill: #ffffff;
+}

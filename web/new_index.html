@@ -15,33 +15,33 @@
 </head>
 <body>
     <header>
+        <div class="nav-left"></div>
+
         <div class="head">
+            <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="M3 11h18v10H3zm2 2v6h14v-6zm7-11 9 6v2H3V8z"/>
+                    </svg>
+                </span>
             <h3>Nivida</h3>
         </div>
+
         <div class="nav-mobile">
-        <div class="nav_section_accont">
-        <a id="header-detail">Personal</a>
-        <a id="header-detail">NRI</a>
-        <a id="header-detail">Bussiness</a>
-        <!-- </div> -->
-        <!-- <div class="nav_moblie-menu"> -->
-        <a id="header-detail">Resources</a>
-        <a id="header-detail">About</a>
-        <a id="header-detail">Help</a>
-        <a id="header-detail">Complaints</a>
-        <!-- </div> -->
-        <!-- <div class="nav-mobile-comp"> -->
-        <a id="header-detail" href="tel:1234567890" ><i class="fa-solid fa-phone"></i></a>
-        <a id="header-detail" href="tel:1234567890">1800 1800</a>
-        <a id="header-detail" style="margin-right: -20px;" href="#search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <!-- <a id="header-detail"><i class="fa-light fa-heart"></i></a> -->
-         <a id="header-detail" href="https://wa.me/7021175922"  style="font-size: 26px;"><i class="fa-brands fa-whatsapp"></i>  </a>
-          <!-- <a id="header-detail" class="Mode"><i class="fa-solid fa-moon"></i></a> -->
-           <!-- <button><a id="header-detail" class="Mode"><i class="fa-solid fa-moon"></i></a></button> -->
-        <button id="login_button"><a href="index.html"  class="button" style="color: white;">Log In</a></button>
-         <!-- <a href="login.html" class="button">Log In</a> -->
-          <button class="Mode" type="button"><i class="fa-solid fa-moon"></i></button>
-    </div>
+            <a id="header-detail">Personal</a>
+            <a id="header-detail">NRI</a>
+            <a id="header-detail">Business</a>
+            <a id="header-detail">Resources</a>
+            <a id="header-detail">About</a>
+            <a id="header-detail">Help</a>
+            <a id="header-detail">Complaints</a>
+            <a id="header-detail" href="tel:1234567890"><i class="fa-solid fa-phone"></i></a>
+            <a id="header-detail"  style="margin-left : 0rem;"  href="tel:1234567890">1800 1800</a>
+            <a id="header-detail" href="#search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a id="header-detail" href="https://wa.me/7021175922" style="font-size: 26px;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="index.html">
+                <button id="login_button" style="margin : 1.5rem;">Log In</button>
+            </a>
+            <button class="Mode" type="button" style="margin-left : -1rem;"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
     <main>
@@ -264,7 +264,7 @@
                         18XX XXXX </span></a>
                     </div> -->
                                  <div class="hero-call-item-support">
-                     <a href="tel:1234567890" target="_blank"><i class="fa-solid fa-phone"></i></a>
+                     <a href="tel:1234567890"  id="phone-icon-unique"target="_blank"><i class="fa-solid fa-phone"></i></a>
                     <span style="font-size: 12px;">Get support<br>
                         18XX XXXX
                     </span>
@@ -410,7 +410,7 @@
                      </div>
 
                      <!-- add range  -->
-                      <label style="font-size: larger;">Amount</label><br>
+                      <label style="font-size: larger ">Amount</label><br>
                       <input type="range" min="50000" max="50000000" step="1000" value="50000" class="slider-range" id="amountrange" style="color: #588157;">
                       <input type="number" id="amountInput" value="50000">
                       <br>
