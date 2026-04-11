@@ -1,6 +1,6 @@
 :root {
-    --bg: #eef2ff;
-    --bg-accent: #dbeafe;
+    --bg: #52796fff;
+    --bg-accent: #fefefe;
     --surface: #ffffff;
     --surface-alt: #f6f8ff;
     --surface-muted: rgba(255, 255, 255, 0.75);
@@ -15,11 +15,12 @@
     --shadow: 0 22px 46px rgba(15, 23, 42, 0.12);
     --overlay: rgba(15, 23, 42, 0.6);
     --green : #a3b18a;
+    --ctn-button :#a3b18a;
 }
 
 body[data-theme="dark"] {
     --bg: #0b1220;
-    --bg-accent: #111c32;
+    --bg-accent:#3e5c76;
     --surface: #141f36;
     --surface-alt: #192744;
     --surface-muted: rgba(20, 31, 54, 0.85);
@@ -33,6 +34,8 @@ body[data-theme="dark"] {
     --accent-muted: rgba(148, 163, 184, 0.15);
     --shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
     --overlay: rgba(2, 6, 23, 0.78);
+    --green :#729ed7;
+     --ctn-button :#ffab00;
 }
 
 * {
@@ -42,9 +45,11 @@ body[data-theme="dark"] {
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    /* background: radial-gradient(circle at top left, var(--bg) 0%, var(--bg-accent) 35%, var(--bg) 100%); */
-    /* background: linear-gradient(to bottom, #94bc93, #588157); */
-    background:linear-gradient(to bottom,#52796fff,#fefefe);
+    background: linear-gradient( var(--bg) , var(--bg-accent) ); 
+    background: linear-gradient();
+    /* background: linear-gradient(to bottom, var(--light-green), var(--bg),); */
+     /* background: linear-gradient(to bottom, #94bc93, #588157); */
+    /* background:linear-gradient(to bottom,#52796fff,#fefefe); */
     color: var(--text);
     min-height: 100vh;
     transition: background 0.3s ease, color 0.3s ease;
@@ -135,7 +140,7 @@ button:disabled {
 
 .primary {
     /* background: linear-gradient(135deg, #1d4ed8, #2563eb); */
-    background: #a3b18a;
+    background:var(--ctn-button);
     /* color: #ffffff; */
     color: black;
     padding: 0.85rem 1.2rem;
@@ -194,17 +199,13 @@ button:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: var(--overlay); */
-       /* background: linear-gradient(to bottom, #94bc93, #588157); */
-       background: linear-gradient(to right,#dad7cd,#a3b18a) ;
+   background: linear-gradient( var(--bg) , var(--bg-accent) ); 
     padding: 2rem;
     z-index: 20;
 }
 
 .auth-card {
-    /* background: var(--surface); */
-      background: linear-gradient(to bottom, #94bc93, #588157);
-       /* background: linear-gradient(to right,#dad7cd,#a3b18a) ; */
+    background: var(--surface);
     color: var(--text);
     padding: 2.5rem 3rem;
     border-radius: 18px;
@@ -274,7 +275,7 @@ button:disabled {
     padding: 0.65rem 0.9rem;
     border-radius: 12px;
     /* color: var(--muted); */
-    color: rgb(42, 41, 41);
+    color:var(--text);
     transition: background 0.25s ease, color 0.25s ease;
 }
 
@@ -287,7 +288,7 @@ button:disabled {
 
 .nav-link.active {
     /* background: var(--accent); */
-    background: #a3b18a;
+    background: var(--green);
     /* color: #ffffff; */
     color: #0b1220;
     box-shadow: 0 12px 22px rgba(37, 99, 235, 0.25);
@@ -1070,6 +1071,7 @@ tbody tr:hover {
     border: none;
     padding: 0.75rem 0.9rem;
     background: transparent;
+    color : var(--text);
 }
 
 .input-with-prefix input:focus {
@@ -1183,4 +1185,22 @@ tbody tr:hover {
 }
 body[data-theme="dark"] .icon-button {
     color: #ffffff; /* white icon in dark mode */
+}
+
+/* Smooth transitions for sliders */
+.slider-above {
+    transition: transform 0.5s ease-in-out;
+}
+
+.slideing {
+    transition: transform 0.5s ease-in-out;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure all transitions are smooth */
+* {
+    transition: all 0.3s ease-in-out;
 }

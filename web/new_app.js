@@ -178,3 +178,17 @@ document.addEventListener('DOMContentLoaded', function () {
   
 //   // Rest of your existing JavaScript code...
 // });
+
+// For main slider (with easing)
+function nextSlideAbove() {
+    currentSlideAbove = (currentSlideAbove + 1) % slidesAbove.length;
+    sliderAbove.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; // Smooth easing
+    showSlideAbove(currentSlideAbove);
+}
+
+// For left slider (with easing)
+function nextSlideLeft() {
+    currentSlideLeft = (currentSlideLeft + 1) % slidesLeft.length;
+    sliderLeft.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; // Smooth easing
+    showSlideLeft(currentSlideLeft);
+}

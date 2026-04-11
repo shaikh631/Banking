@@ -12,6 +12,8 @@
         profileSession: document.getElementById("profile-session"),
         passwordForm: document.getElementById("password-form"),
         passwordStatus: document.getElementById("password-status"),
+        createUserForm: document.getElementById("create-user-form"),
+        createUserStatus: document.getElementById("create-user-status"),
         logoutButton: document.getElementById("logout-btn"),
         themeToggle: document.getElementById("theme-toggle"),
         toast: document.getElementById("toast")
@@ -22,7 +24,8 @@
         currentUser: sessionStorage.getItem("bankAuthUser"),
         profile: null,
         toastTimer: null,
-        isSubmittingPassword: false
+        isSubmittingPassword: false,
+        isCreatingUser: false
     };
 
     if (!state.authToken) {
@@ -115,19 +118,71 @@
         }
     }
 
-    function setPasswordFormSubmitting(submitting) {
-        if (!elements.passwordForm) {
+    function setCreateUserFormSubmitting(submitting) {
+        if (!elements.createUserForm) {
             return;
         }
-        state.isSubmittingPassword = submitting;
-        const formElements = Array.from(elements.passwordForm.elements);
+        state.isCreatingUser = submitting;
+        const formElements = Array.from(elements.createUserForm.elements);
         formElements.forEach(control => {
             control.disabled = submitting && control.type !== "reset";
         });
         if (submitting) {
-            elements.passwordForm.setAttribute("aria-busy", "true");
+            elements.createUserForm.setAttribute("aria-busy", "true");
         } else {
-            elements.passwordForm.removeAttribute("aria-busy");
+            elements.createUserForm.removeAttribute("aria-busy");
+        }
+    }
+
+    async function submitCreateUser(event) {
+        event.preventDefault();
+        if (!elements.createUserForm) {
+            return;
+        }
+        if (state.isCreatingUser) {
+            return;
+        }
+        const formData = new FormData(elements.createUserForm);
+        const username = String(formData.get("username") || "").trim();
+        const password = String(formData.get("password") || "").trim();
+        const confirmPassword = String(formData.get("confirmPassword") || "").trim();
+        if (!username) {
+            setStatus(elements.createUserStatus, "Enter a username.", "error");
+            return;
+        }
+        if (!password) {
+            setStatus(elements.createUserStatus, "Enter a password.", "error");
+            return;
+        }
+        if (password.length < 8) {
+            setStatus(elements.createUserStatus, "Password must be at least 8 characters.", "error");
+            return;
+        }
+        if (password !== confirmPassword) {
+            setStatus(elements.createUserStatus, "Passwords do not match.", "error");
+            return;
+        }
+        setStatus(elements.createUserStatus, "Creating user...");
+        setCreateUserFormSubmitting(true);
+        try {
+            const response = await authFetch("/api/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+            const payload = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                const message = payload && payload.error ? payload.error : "Unable to create user.";
+                throw new Error(message);
+            }
+            elements.createUserForm.reset();
+            setStatus(elements.createUserStatus, "User created successfully.", "success");
+            showToast("User created successfully.", "success");
+        } catch (error) {
+            console.error("User creation failed", error);
+            setStatus(elements.createUserStatus, error.message || "Unable to create user.", "error");
+        } finally {
+            setCreateUserFormSubmitting(false);
         }
     }
 
@@ -277,6 +332,10 @@
         elements.passwordForm?.addEventListener("submit", submitPasswordChange);
         elements.passwordForm?.addEventListener("reset", () => {
             setStatus(elements.passwordStatus, "");
+        });
+        elements.createUserForm?.addEventListener("submit", submitCreateUser);
+        elements.createUserForm?.addEventListener("reset", () => {
+            setStatus(elements.createUserStatus, "");
         });
     }
 

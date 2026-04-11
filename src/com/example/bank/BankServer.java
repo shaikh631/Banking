@@ -52,6 +52,7 @@ public final class BankServer {
         server.createContext("/api/transfers", new TransferHandler());
         server.createContext("/api/users/me", new CurrentUserHandler());
         server.createContext("/api/users/password", new ChangePasswordHandler());
+        server.createContext("/api/users", new CreateUserHandler());
         server.createContext("/api/dashboard", new DashboardHandler());
         server.createContext("/", new StaticFileHandler());
         server.setExecutor(Executors.newCachedThreadPool());
@@ -280,6 +281,43 @@ public final class BankServer {
             } catch (RuntimeException ex) {
                 ex.printStackTrace();
                 sendJson(exchange, 500, errorJson("Unable to update password"));
+            }
+        }
+    }
+
+    private final class CreateUserHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            AuthContext auth = requireAuth(exchange);
+            if (auth == null) {
+                return;
+            }
+            if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendMethodNotAllowed(exchange, exchange.getRequestMethod());
+                return;
+            }
+            try {
+                Map<String, String> payload = parseFlatJson(readBody(exchange));
+                String username = payload.getOrDefault("username", "").trim();
+                String password = payload.getOrDefault("password", "").trim();
+                System.out.println("Create user request: username=" + username + ", password length=" + password.length());
+                if (username.isEmpty() || password.isEmpty()) {
+                    sendJson(exchange, 400, errorJson("Username and password are required"));
+                    return;
+                }
+                if (password.length() < 8) {
+                    sendJson(exchange, 400, errorJson("Password must be at least 8 characters"));
+                    return;
+                }
+                if (userRepository.findByUsername(username).isPresent()) {
+                    sendJson(exchange, 400, errorJson("Username already exists"));
+                    return;
+                }
+                userRepository.createUser(username, password);
+                sendJson(exchange, 201, "{\"status\":\"User created\"}");
+            } catch (RuntimeException ex) {
+                ex.printStackTrace();
+                sendJson(exchange, 500, errorJson("Unable to create user"));
             }
         }
     }

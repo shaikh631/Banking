@@ -9,9 +9,9 @@ import java.sql.SQLException;
  */
 public final class Database {
 
-    private static final String URL = readEnv("BANK_DB_URL", "jdbc:mysql://localhost:3306/bank?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true");
+    private static final String URL = readEnv("BANK_DB_URL", "jdbc:mysql://localhost:3306/banking_app?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true");
     private static final String USER = readEnv("BANK_DB_USER", "root");
-    private static final String PASSWORD = readEnv("BANK_DB_PASSWORD", "Nawaz@5614");
+    private static final String PASSWORD = readEnv("BANK_DB_PASSWORD", "");
 
     static {
         try {

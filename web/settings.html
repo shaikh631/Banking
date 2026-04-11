@@ -158,6 +158,36 @@
 					</div>
 				</article>
 			</section>
+
+			<article class="settings-card" aria-labelledby="create-user-heading">
+				<header class="settings-card-header">
+					<div>
+						<h2 id="create-user-heading">Create New User</h2>
+						<p class="muted small-text">Add a new user to the system with username and password.</p>
+					</div>
+				</header>
+				<form id="create-user-form" class="settings-form" autocomplete="off" novalidate>
+					<label for="new-username">Username</label>
+					<input id="new-username" name="username" type="text" required>
+
+					<label for="new-user-password">Password</label>
+					<input id="new-user-password" name="password" type="password" minlength="8" required>
+
+					<label for="confirm-user-password">Confirm Password</label>
+					<input id="confirm-user-password" name="confirmPassword" type="password" minlength="8" required>
+
+					<div class="form-actions">
+						<button type="submit" class="primary">Create User</button>
+						<button type="reset" class="icon-button" aria-label="Clear user form">
+							<svg viewBox="0 0 24 24" focusable="false">
+								<path d="m7 7 10 10m0-10-10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+					</div>
+				</form>
+				<div id="create-user-status" class="status form-status" role="status"></div>
+			</article>
+		</div>
 		</div>
 	</div>
 
