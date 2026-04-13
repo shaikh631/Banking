@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Bank Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -104,18 +105,19 @@
                     <span id="last-updated" class="muted small-text">Updated just now</span>
                 </div>
                 <div class="topbar-right">
-                    <button id="refresh-dashboard" type="button" class="icon-button" aria-label="Refresh dashboard">
+                    <button id="refresh-dashboard" type="button" class="icon-button" aria-label="Refresh dashboard" style="margin-right: 0.5rem;">
                         <svg viewBox="0 0 24 24" focusable="false">
                             <path d="M12 5V2L8 6l4 4V7c3.309 0 6 2.691 6 6a6 6 0 0 1-6 6 5.99 5.99 0 0 1-5.191-3H4.26A8.001 8.001 0 0 0 20 13c0-4.411-3.589-8-8-8z"></path>
                         </svg>
                     </button>
                      <!-- Theme toggle button with aria-pressed for accessibility -->
-                    <button id="theme-toggle" type="button"  class="icon-button" aria-label="Toggle theme" aria-pressed="false">
+                    <!-- <button id="theme-toggle" type="button"  class="icon-button" aria-label="Toggle theme" aria-pressed="false">
                         
                         <svg id="theme-icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                             <path d="M12 2a9 9 0 0 0 0 18 7 7 0 0 1 0-18z"></path>
                         </svg>
-                    </button>
+                    </button> -->
+                    <button class="Mode" id="theme-toggle" type="button" style="margin-left : 0rem;"><i class="fa-solid fa-moon"></i></button>
                     <button id="open-create-account" type="button" class="primary">Create Account</button>
                 </div>
             </header>

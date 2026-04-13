@@ -68,9 +68,7 @@ a {
     display: none !important;
 }
 
-.muted {
-    /* color: #dae7ff; */
-}
+
 
 .small-text {
     font-size: 0.85rem;
@@ -1204,3 +1202,47 @@ html {
 * {
     transition: all 0.3s ease-in-out;
 }
+
+
+ /* body.dark-mode .Mode:hover{
+    background-color: transparent;
+    color: white;
+    transform: scale(1.2);
+} */
+
+.Mode {
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500; /* Semi-bold for emphasis */
+  letter-spacing: 0.5px; /* Slight spacing for clarity */
+  color: #1e1c1c; /* White text */
+  /* background-color: #072113; Teal shade for modern look */
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+    border: 1px solid #072113;
+    margin-left: 0rem;
+  /* color: #ffffff;
+  margin-bottom: 2rem; */
+   transition: all 0.3s ease; /* Smooth transition for hover effects */
+  /* transition: background (0.3s ease, transform 0.1s ease); */
+}
+
+/* body.dark-mode .Mode:hover {
+   background-color: transparent;
+     color: #ffffff;
+     transform: scale(1.2);
+ } */
+.Mode:hover {
+    background-color: transparent;
+     color: white;
+     transform: scale(1.2);
+     border: 1px solid white;
+ }
+ body.dark-mode .Mode {
+    background-color: transparent;
+     color: #ffffff;
+     border: 0.5px solid #ffffff;
+ }

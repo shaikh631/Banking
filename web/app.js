@@ -966,3 +966,36 @@ function getPreferredTheme() {
 
 	init();
 })();
+
+// Mode
+// 🌗 Dark Mode Toggle
+const body = document.body;
+
+document.addEventListener('DOMContentLoaded', function () {
+  const modeToggle = document.querySelector('.Mode');
+  if (!modeToggle) return;
+
+  // Apply saved theme if exists, otherwise use OS preference
+  const preferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const savedTheme = localStorage.getItem('theme') || preferredTheme;
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>'; // show sun icon
+  } else {
+    body.classList.remove('dark-mode');
+    modeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  }
+
+  modeToggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+      modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+      localStorage.setItem('theme', 'light');
+      modeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+  });
+});
